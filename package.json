@@ -7,6 +7,12 @@
     "react-dom": "^16.1.1",
     "react-scripts": "1.0.17"
   },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
