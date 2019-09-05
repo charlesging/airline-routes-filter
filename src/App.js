@@ -68,9 +68,6 @@ class App extends Component {
       {name: 'Destination Airport', property: 'dest'},
     ];
 
-    // const filteredRoutesByAirline = Data.routes.filter(this.routeIncludesAirline);
-    // const filteredRoutesByAirport = Data.routes.filter(this.routeIncludesAirport);
-
     const filteredRoutes = Data.routes.filter(route => {
       return this.routeIncludesAirline(route) && this.routeIncludesAirport(route);
     })
@@ -98,9 +95,11 @@ class App extends Component {
         <header className="header">
           <h1 className="title">Airline Routes</h1>
         </header>
-        <Map 
-          routes={ mapRoutes }
-        />
+        <section>
+          <Map 
+            routes={ mapRoutes }
+          />
+        </section>
         <section>
           Show routes on
           <Select options={ Data.airlines } 
