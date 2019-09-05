@@ -5,17 +5,7 @@ import { getAirlineById, getAirportByCode } from './data.js';
 import './App.css';
 
 class App extends Component {
-  
-  defaultState = {
-    airline: 'all',
-    'airport': 'all',
-  }
-
-  state = {
-    airline: this.defaultState.airline,
-    airport: this.defaultState.airport,   
-  };
-  
+    
   formatValue = (property, value) => {
     if (property === 'airline') {
       return getAirlineById(value).name;
@@ -46,7 +36,8 @@ class App extends Component {
           <Table className="routes-table" 
                  columns={ columns } 
                  rows= { filteredRoutes }
-                 format={ this.formatValue } 
+                 format={ this.formatValue }
+                 perPage={ 25 }
           />       
         </section>
       </div>

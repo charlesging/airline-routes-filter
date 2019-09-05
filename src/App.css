@@ -46,8 +46,8 @@ select {
   width: 90%;
 }
 
-.pagination a {
-  margin: 0 .5em;
+.pagination button {
+  margin: 0 1em;
 }
 
 svg circle:hover {
