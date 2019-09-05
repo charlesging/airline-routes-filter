@@ -13,7 +13,7 @@ class Select extends Component {
     const options = this.props.options.map((option) => {
       let value = option[this.props.valueKey];
       return (
-        <option key={value} value={value} disabled={ !this.props.filtered.includes(value) }>
+        <option key={value} value={value} disabled={ !this.props.active.includes(value) }>
           { option[this.props.titleKey] }
         </option>
       )

@@ -1,16 +1,15 @@
-
 import React, { Component } from 'react'
 
 class Map extends Component {
 
   render() {
-    const routes = this.props.routes.map(route => {
+    const routes = this.props.routes.map((route, idx) => {
       let [src, dest] = [route[0], route[1]]
       let [x1, y1] = [src.long, src.lat];
       let [x2, y2] = [dest.long, dest.lat]
       debugger;      
       return (
-        <g key="">
+        <g key={ idx }>
           <circle className="source" cx={x1} cy={y1}>
             <title></title>
           </circle> 

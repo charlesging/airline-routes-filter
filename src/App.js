@@ -68,8 +68,8 @@ class App extends Component {
       {name: 'Destination Airport', property: 'dest'},
     ];
 
-    const filteredRoutesByAirline = Data.routes.filter(this.routeIncludesAirline);
-    const filteredRoutesByAirport = Data.routes.filter(this.routeIncludesAirport);
+    // const filteredRoutesByAirline = Data.routes.filter(this.routeIncludesAirline);
+    // const filteredRoutesByAirport = Data.routes.filter(this.routeIncludesAirport);
 
     const filteredRoutes = Data.routes.filter(route => {
       return this.routeIncludesAirline(route) && this.routeIncludesAirport(route);
@@ -82,7 +82,6 @@ class App extends Component {
         {lat: src.lat, long: src.long},
         {lat: dest.lat, long: dest.long},
       ]
-      // return an array with 2 objects
     });
 
     const activeAirportsCodes = Data.airports.filter(airport => {
@@ -105,7 +104,7 @@ class App extends Component {
         <section>
           Show routes on
           <Select options={ Data.airlines } 
-                  filtered = { activeAirlineIDs }
+                  active = { activeAirlineIDs }
                   valueKey="id" 
                   titleKey="name"
                   allTitle="All Airlines"
@@ -114,7 +113,7 @@ class App extends Component {
           />
           flying in or out of 
           <Select options={ Data.airports } 
-                  filtered = { activeAirportsCodes }
+                  active = { activeAirportsCodes }
                   valueKey="code" 
                   titleKey="name"
                   allTitle="All Airports"
