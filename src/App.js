@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Data from './data.js';
 import Table from './components/Table.jsx';
 import Select from './components/Select.jsx';
+import Map from './components/Map.jsx';
+
 
 import { getAirlineById, getAirportByCode } from './data.js';
 import './App.css';
@@ -73,6 +75,16 @@ class App extends Component {
       return this.routeIncludesAirline(route) && this.routeIncludesAirport(route);
     })
 
+    const mapRoutes = filteredRoutes.map(route => {
+      let src = getAirportByCode(route.src);
+      let dest = getAirportByCode(route.dest);
+      return [
+        {lat: src.lat, long: src.long},
+        {lat: dest.lat, long: dest.long},
+      ]
+      // return an array with 2 objects
+    });
+
     const activeAirportsCodes = Data.airports.filter(airport => {
       return filteredRoutes.some(route => [route.src, route.dest].includes(airport.code) )
     }).map( airport => airport.code );
@@ -87,6 +99,9 @@ class App extends Component {
         <header className="header">
           <h1 className="title">Airline Routes</h1>
         </header>
+        <Map 
+          routes={ mapRoutes }
+        />
         <section>
           Show routes on
           <Select options={ Data.airlines } 

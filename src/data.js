@@ -4,12 +4,6 @@ function getAirlineById(id) {
   })[0];
 }
 
-// function getAirlineByName(name) {
-//   return airlines.filter(airline => {
-//     return airline.name === name;
-//   })[0];
-// }
-
 function getAirportByCode(code) {
   return airports.filter(airport => {
     return airport.code === code;
