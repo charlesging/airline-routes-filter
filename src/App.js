@@ -37,6 +37,13 @@ class App extends Component {
     });
   };
 
+  clearFilters = (event) => {
+    this.setState({
+      airline: 'all',
+      airport: 'all'
+    })
+  }
+
   routeIncludesAirline = (route) => {
     return (route.airline === this.state.airline) ||
            (this.state.airline === 'all')
@@ -99,6 +106,7 @@ class App extends Component {
                   value={this.state.airport} 
                   onChange={ this.selectAirport } 
           />
+          <button onClick={ this.clearFilters }>Clear Filters</button>
           <Table className="routes-table" 
                  columns={ columns }
                  rows= { filteredRoutes }
